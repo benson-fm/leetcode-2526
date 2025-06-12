@@ -14,6 +14,12 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v5
 
+      - name: Check Environment Vars
+        run: |
+          echo "SENDER_REMINDER length: ${#SENDER_REMINDER}"
+          echo "PASSWORD_REMINDER length: ${#PASSWORD_REMINDER}"
+          echo "RECIPIENTS_REMINDER length: ${#RECIPIENTS_REMINDER}"
+
       - name: Run Reminder Script
         env:
           SENDER_REMINDER: ${{ secrets.SENDER_REMINDER }}
