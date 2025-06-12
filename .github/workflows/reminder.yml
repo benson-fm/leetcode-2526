@@ -1,0 +1,22 @@
+name: LeetCode Reminder
+
+on:
+  schedule:
+  - cron: '00, 18 * * *'
+
+jobs:
+  test_schedule:
+    runs-on: ubuntu-latest
+    environment: EmailReminder
+    steps:
+      - uses: actions/checkout@v4
+      - name: Set up Python 
+      - uses: actions/setup-python@v5
+
+      - name: Run Reminder Script
+        env:
+          SENDER_REMINDER: ${{ secrets.SENDER_REMINDER }}
+          PASSWORD_REMINDER: ${{ secrets.PASSWORD_REMINDER }}
+          RECIPIENTS_REMINDER: ${{ secrets.RECIPIENTS_REMINDER }}
+        run:
+          python utils/reminder.py
