@@ -27,7 +27,7 @@ jobs:
           echo "KEY_SUMMARY length: ${#KEY_SUMMARY}"
           echo "GIT_SHA length: ${#GIT_SHA}"
           echo "SENDER length: ${#SENDER}"
-          echo "PASSWORD_EMAIL length: ${#PASSWORD}"
+          echo "PASSWORD_EMAIL length: ${#PASSWORD_EMAIL}"
       - name: Run Code
         run: python utils/wksm.py
         
