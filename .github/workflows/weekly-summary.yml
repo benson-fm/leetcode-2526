@@ -1,7 +1,8 @@
 name: Weekly Summary
 
-on: push
-  cron: '0 0 * * 0'
+on: 
+  push:
+    branches: [master, main]
   workflow_dispatch:
 
 jobs:
@@ -19,10 +20,14 @@ jobs:
       - name: Test Env
         env:
           KEY_SUMMARY: ${{vars.KEY_SUMAARY}}
-          GIT_SHA: ${{vars.GIT_SHA}}
+          GIT_SHA: ${{github.sha}}
+          SENDER: ${{vars.SENDER}}
+          PASSWORD_EMAIL: ${{vars.PASSWORD_EMAIL}}
         run: |
           echo "KEY_SUMMARY length: ${#KEY_SUMMARY}"
           echo "GIT_SHA length: ${#GIT_SHA}"
+          echo "SENDER length: ${#SENDER}"
+          echo "PASSWORD_EMAIL length: ${#PASSWORD}"
       - name: Run Code
-          python utils/wksm.py
+        run: python utils/wksm.py
         
