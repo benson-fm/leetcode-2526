@@ -19,7 +19,7 @@ jobs:
         run: python -m pip install google-genai
       - name: Test Env
         env:
-          KEY_SUMMARY: ${{vars.KEY_SUMAARY}}
+          KEY_SUMMARY: ${{vars.KEY_SUMMARY}}
           GIT_SHA: ${{github.sha}}
           SENDER: ${{vars.SENDER}}
           PASSWORD_EMAIL: ${{vars.PASSWORD_EMAIL}}
